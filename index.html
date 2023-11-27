@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="webFile.css" as="style">
+    <link rel="stylesheet" type="text/css" href="webFile.css">
+    <link rel="icon" href="flags/flaggif.gif">
+    <title>Final Project - EECS 1012</title>
+</head>
+<body>
+
+    <div id="main">
+        <span style="font-size:50px;cursor:pointer" onclick="openNav()" >&#9776;</span>
+        <h1> Guess the Flag <!-- <img id="gif" src="flags/flaggif.gif"> --> </h1>
+        <div class="background"></div>
+
+        <div id="mySidenav" class="sidenav">
+            <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div id="output"></div>
+
+        <br>
+        <br>
+        <br>
+   
+        <div class="gameModes">
+            <button id="education"> Education Mode </button>
+            <button id="normal" onclick="normalMode()"> Normal Mode </button>
+            <button id="time"> 60 seconds! </button>
+        </div>
+
+        <div class="scoreChild2"><button onclick="toggleDark()"> Moon Mode </button></div>
+
+        <div class="start" id="start">
+            <button id="starts" onclick="startButton()">START</button>
+        </div>
+
+        <div class="flag1">
+            <div class="scoreChild"><p id="score"></p><p id='timer'></p></div>
+            <div class="scoreChild3"><img id="flag1" src="" alt=""></div>
+            <div class="scoreChild4"><p></p></div>
+        </div>
+
+        <div id="inputSubmit">
+            <input id="flagGuess" type="text" onclick="inputClick()" placeholder="Place in your guess" />
+            <button id="submitButton" onclick="submit()"> ENTER </button>
+        </div>
+        <div class="hintButtons" id="hintButt">
+            <button id="hint"> HINT </button>
+            <button id="giveUp" onclick="giveUp()"> GIVE UP </button>
+        </div>
+
+        <script src="webFile.js"></script>
+
+        <div class="earth" id="earth" style="text-align:center">
+            <div class="dot">
+                <div class="subDots"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
