@@ -10,7 +10,7 @@
 
     <div id="main">
         <span style="font-size:50px;cursor:pointer" onclick="openNav()" >&#9776;</span>
-        <h1> Guess the Flag <!-- <img id="gif" src="flags/flaggif.gif"> --> </h1>
+        <a href="index.html">  <h1> Guess the Flag <!-- <img id="gif" src="flags/flaggif.gif"> --> </h1></a>
         <div class="background"></div>
 
         <div id="mySidenav" class="sidenav">
@@ -24,16 +24,19 @@
         <div id="output"></div>
 
         <br>
+        
         <br>
+        <div class="scoreChild2"><button onclick="toggleDark()"> Moon Mode </button></div>
         <br>
+    
    
-        <div class="gameModes">
-            <button id="education"> Education Mode </button>
-            <button id="normal" onclick="normalMode()"> Normal Mode </button>
-            <button id="time"> 60 seconds! </button>
+        <div class="gameModes" id="gamemodes">
+            <a href="../apiTest.html">  <button id="education"> PRACTICE </button> </a>
+            <button id="normal" onclick="playMode()"> PLAY </button>
+            <button id="time"> 60 SECONDS! </button>
         </div>
 
-        <div class="scoreChild2"><button onclick="toggleDark()"> Moon Mode </button></div>
+      
 
         <div class="start" id="start">
             <button id="starts" onclick="startButton()">START</button>

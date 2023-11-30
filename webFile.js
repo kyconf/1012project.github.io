@@ -1,3 +1,27 @@
+let flagImage = [];
+
+const loadCountryAPI = () => {
+
+
+    fetch('https://restcountries.com/v3.1/independent?status=true')
+    .then(res => res.json())
+    .then(data => {
+        // Assuming the response data is an array
+        flagImage = data;
+    
+        // Now you can use the dataArray as needed
+        console.log(data);
+        console.log(flagImage);
+      })
+
+    }
+
+    const displayCountries = countries => {
+      console.log(countries)
+      const countriesHTML= countries.map(country => getCountry(country))
+  }
+  
+
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
   var sidenav = document.getElementById("mySidenav");
@@ -16,12 +40,47 @@ function openNav() {
  
   document.getElementById("inputSubmit").style.display = "none";
   document.getElementById("hintButt").style.display = "none";
+  document.getElementById("gamemodes").style.display = "none";
+  document.getElementById("score").style.display ="none";
+
+
+function startButton() {
+  document.getElementById("gamemodes").style.display = "flex";
+  var startButt = document.getElementById("start");
+  if (startButt.style.display === "none") {
+    startButt.style.display = "flex";
+  } else {
+    startButt.style.display = "none";
+  }
+}
+
+randomIndex = Math.floor(Math.random() * flagImage.length);
+
+function everything() {
+  console.log(randomIndex);
+  randomIndex = Math.floor(Math.random() * flagImage.length);
+  randomImageURL = flagImage[randomIndex].flags.png;
+  randomName = flagImage[randomIndex].name.common;
+  languages = flagImage[randomIndex].languages;
+  population = flagImage[randomIndex].population;
+  alt = flagImage[randomIndex].flags.alt;
+  capital = flagImage[randomIndex].capital;
+  subregion = flagImage[randomIndex].subregion;
+  timezone = flagImage[randomIndex].timezones;
+    console.log(randomImageURL);
+    console.log(randomName);
+}
 
 
 
-  function startButton() {
-    
-    var hideInput = document.getElementById("inputSubmit");
+function playMode() {
+
+  everything();
+
+
+
+
+  var hideInput = document.getElementById("inputSubmit");
     var startButt = document.getElementById("start");
 
     document.getElementById("score").style.backgroundColor = 'rgba(128, 128, 128, 0.135)';
@@ -30,7 +89,7 @@ function openNav() {
     
 
    
-    document.getElementById("score").innerHTML = "Score: 0" + "<br><br>Previous Highscore: " + storedHS;
+    document.getElementById("score").innerHTML = "Score: 0" + "<br><br>Previous Highscore: ";
 
 
   if (startButt.style.display === "none") {
@@ -38,79 +97,51 @@ function openNav() {
   } else {
     startButt.style.display = "none";
   }
-  /*
-  if (hideInput.style.display === "hidden") {
-    hideInput.style.display = "block";
-  } else {
-    hideInput.style.display = "none";
-  } */
-  
 
-  document.getElementById("flag1").src = randomImageURL; //will do the entire process again
 
-   /* document.getElementById("lol").setAttribute("src", "555603.png");
-    document.getElementById("lol").style.display="flex";
-    */
+  document.getElementById("flag").src = randomImageURL;
+  document.getElementById("test").innerHTML = randomName + "<br><br>Located in " + subregion + ". Timezone: " + timezone + "<br><br>The capital of this country is " + capital + ". The official language spoken here is " + flagImage[randomIndex].languages[Object.keys(flagImage[randomIndex].languages)[0]
+    ] + ". " + alt + " With a population of: " + population;
     
-  }
+} 
 
-  
-  let flagImage = [
-    "flags/jp.png",
-    "flags/ph.png",
-    "flags/sk.png",
-    "flags/sg.png",
-    "flags/th.png",
-    "flags/ch.png",
-    "flags/hk.png",
-    "flags/ml.png",
-    
-  ];
-  let flagName = ["Japan", "Philippines", "South Korea", "Singapore", "Thailand","China", "Hong Kong", "Malaysia"];
-    
 
-  var randomIndex = Math.floor(Math.random() * flagImage.length);
 
-  var randomImageURL = flagImage[randomIndex];
+var inputBox = document.getElementById("flagGuess");
+var counter = 0;
+function submit() {
 
-  var inputGuess = flagName[randomIndex];
-  
-  var inputBox = document.getElementById("flagGuess");
-  var counter = 0;
-  var highscore = 0;
-
-  var storedHS = localStorage.getItem('storedHS');
-  if (storedHS === null) {
-    storedHS = 0;
-  }
-  let modifiedImage = flagImage.slice();
-  let modifiedName = flagName.slice();
-  function submit() {
-
-    
+    //randomName = inputGuess array
+    //randomImageURL = flagImage array
   
   console.log("Random Index:", randomIndex); 
 
-    if (inputBox.value.trim().toLowerCase() === inputGuess.toLowerCase()) {
+    if (inputBox.value.trim().toLowerCase() === randomName.toLowerCase()) {
       counter = counter + 1;
-      alert("Correct!");
+      var audio = document.getElementById('myAudio');
+      audio.play();
+     
       inputBox.value = '';
-      flagImage.splice(randomIndex, 1);
+      /*flagImage.splice(randomIndex, 1);
 
       flagName.splice(randomIndex, 1);
 
-      console.log("Flag Image after splice:", flagImage); 
+      console.log("Flag Image after splice:", randomImageURL); 
       console.log("Flag Name after splice:", flagName);    
-      console.log("counter",counter);
+      console.log("counter",counter);*/
 
       if (flagImage.length > 0) {
       randomIndex = Math.floor(Math.random() * flagImage.length);
-      
-      randomImageURL = flagImage[randomIndex];
-      inputGuess = flagName[randomIndex]; //updates
 
       
-      if (highscore < counter) {
+    everything();
+
+      document.getElementById("flag").src = randomImageURL;
+      document.getElementById("test").innerHTML = randomName + "<br><br>Located in " + subregion + ". Timezone: " + timezone + "<br><br>The capital of this country is " + capital + ". The official language spoken here is " + flagImage[randomIndex].languages[Object.keys(flagImage[randomIndex].languages)[0]
+    ] + ". " + alt + " With a population of: " + population;
+    
+    
+     /* if (highscore < counter) {
         highscore = counter;
         localStorage.setItem('storedHS', highscore); 
         document.getElementById("score").innerHTML = "Score: " + counter + "<br><br>Previous Highscore: " + storedHS;
@@ -120,14 +151,26 @@ function openNav() {
       document.getElementById("flag1").src = randomImageURL;
       document.getElementById("score").innerHTML = "Score: " + counter + "<br><br>Previous Highscore: " + storedHS;
       
-
+*/
       } else {
        alert("all items used")
       }
     //document.getElementById("output").innerHTML = "Correct"
   
   } else {
-    alert("Try again!")
+   
+
+ var animatedBox = document.getElementById('flagGuess');
+
+  animatedBox.classList.remove('invalidAnim');
+  
+ 
+  void animatedBox.offsetWidth;
+  
+  
+  setTimeout(function () {
+    animatedBox.classList.add('invalidAnim');
+  }, 10);
     //document.getElementById("output").innerHTML = "Try again!"
   }
 
@@ -172,10 +215,10 @@ function inputClick() { // if input key is pressed, you can press enter and itll
 document.body.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
       submit(); 
-      flagGuess.removeEventListener("keyup", handleEnter);
+      flagGuess.removeEventListener("keyup", inputClick);
   }
   });
-  flagGuess.addEventListener("keyup", handleEnter);
+  flagGuess.addEventListener("keyup", inputClick);
 }
 
 
