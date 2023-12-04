@@ -4,13 +4,19 @@
     <link rel="preload" href="webFile.css" as="style">
     <link rel="stylesheet" type="text/css" href="webFile.css">
     <link rel="icon" href="flags/flaggif.gif">
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Final Project - EECS 1012</title>
+
+    
 </head>
 <body>
 
+
     <div id="main">
-        <span style="font-size:50px;cursor:pointer" onclick="openNav()" >&#9776;</span>
-        <a href="index.html">  <h1> Guess the Flag <!-- <img id="gif" src="flags/flaggif.gif"> --> </h1></a>
+        <span id="slider" style="font-size:50px;cursor:pointer" onclick="openNav()" >&#9776;</span>
+        <h1>  <a href="index.html">Guess the Flag </a> </h1>
         <div class="background"></div>
 
         <div id="mySidenav" class="sidenav">
@@ -20,20 +26,31 @@
             <a href="#">Clients</a>
             <a href="#">Contact</a>
         </div>
+        <div id="myInfo" class="info">
+            <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+
+            <p id="test"> Hello </p>
+        </div>
+        <audio id="myAudio">
+            <source src="duolingo.mp3" type="audio/mp3"></audio>
 
         <div id="output"></div>
-
+        
         <br>
         
         <br>
-        <div class="scoreChild2"><button onclick="toggleDark()"> Moon Mode </button></div>
+        <div class="scoreChild2">
+        <label class="switch">
+            <input type="checkbox" onclick="toggleDark()">
+            <span class="slider round"></span>
+          </label>
         <br>
     
    
         <div class="gameModes" id="gamemodes">
             <a href="apiTest.html">  <button id="education"> PRACTICE </button> </a>
             <button id="normal" onclick="playMode()"> PLAY </button>
-            <button id="time"> 60 SECONDS! </button>
+            <button id="time" onclick="normalMode()"> 60 SECONDS! </button>
         </div>
 
       
@@ -42,14 +59,21 @@
             <button id="starts" onclick="startButton()">START</button>
         </div>
 
-        <div class="flag1">
+        <div class="flag1" id="flag1">
             <div class="scoreChild"><p id="score"></p><p id='timer'></p></div>
-            <div class="scoreChild3"><img id="flag1" src="" alt=""></div>
-            <div class="scoreChild4"><p></p></div>
+            <div class="scoreChild3"><img id="flag" src="" alt=""></div>
+            <div id="scoreChild4" > 
+                <p id="leaderboard">Leaderboard: 
+                    <br>
+                    <br>
+                    Leaderboard not initialized.
+                
+                    
+            </p></div>
         </div>
 
         <div id="inputSubmit">
-            <input id="flagGuess" type="text" onclick="inputClick()" placeholder="Place in your guess" />
+            <input id="flagGuess" type="text" onclick="inputClick()" placeholder="Place in your guess" pattern="[A-Za-z - ]*"/>
             <button id="submitButton" onclick="submit()"> ENTER </button>
         </div>
         <div class="hintButtons" id="hintButt">
@@ -59,11 +83,12 @@
 
         <script src="webFile.js"></script>
 
-        <div class="earth" id="earth" style="text-align:center">
+        <div class="earth" id="earth" style="text-align:center"></div>
+     
             <div class="dot">
                 <div class="subDots"></div>
             </div>
         </div>
-    </div>
+    
 </body>
 </html>

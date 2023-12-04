@@ -46,20 +46,18 @@ function startButton() {
 
   everything();
 
-
-
-
   var hideInput = document.getElementById("inputSubmit");
     var startButt = document.getElementById("start");
 
     document.getElementById("score").style.backgroundColor = 'rgba(128, 128, 128, 0.135)';
+    document.getElementById("leaderboard").style.backgroundColor = 'rgba(128, 128, 128, 0.135)';
     hideInput.style.display = "block";
     document.getElementById("hintButt").style.display = "flex";
     
 
    
     document.getElementById("score").innerHTML = "Score: 0" + "<br><br>Previous Highscore: ";
-
+    document.getElementById("leaderboard").innerHTML = "Leaderboard:"
 
   if (startButt.style.display === "none") {
     startButt.style.display = "flex";
@@ -78,9 +76,10 @@ function startButton() {
 
 var inputBox = document.getElementById("flagGuess");
 var counter = 0;
+var storedHS = 0;
 function submit() {
 
-    //randomName = inputGuess array
+    //randomNam e = inputGuess array
     //randomImageURL = flagImage array
   
   console.log("Random Index:", randomIndex); 
@@ -108,6 +107,7 @@ function submit() {
       document.getElementById("flag").src = randomImageURL;
   document.getElementById("test").innerHTML = randomName + "<br><br>Located in " + subregion + ". Timezone: " + timezone + "<br><br>The capital of this country is " + capital + ". The official language spoken here is " + flagImage[randomIndex].languages[Object.keys(flagImage[randomIndex].languages)[0]
     ] + ". " + alt + " With a population of: " + population;
+    document.getElementById("score").innerHTML = "Score: " + counter + "<br><br>Previous Highscore: " + storedHS;
     
     
      /* if (highscore < counter) {
@@ -170,17 +170,17 @@ https://restcountries.com/v3.1/all?fields=name,flags`
 
 function clickMe() {
   var sidenav = document.getElementById("myInfo");
-  var mainContent = document.getElementById("main2");
+  var mainContent = document.getElementById("main");
 
-  if (sidenav.style.width === "500px") {
+  if (sidenav.style.width === "650px") {
   
       sidenav.style.width = "0";
-   
+      mainContent.style.marginRight = "0";
       
   } else {
     
-      sidenav.style.width = "500px";
-      
+      sidenav.style.width = "650px";
+      mainContent.style.marginRight = "250px";
   }
 }
 
@@ -204,20 +204,16 @@ function toggleDark() {
   var element = document.body;
   element.classList.toggle("moonMode");
   var animatedBox = document.getElementById('earth');
-      
 
 if (animatedBox.classList.contains('earth')) {
   animatedBox.classList.remove('earth');
   void animatedBox.offsetWidth; 
   animatedBox.classList.add('moon');
-
-} else {
+  } else {
   animatedBox.classList.remove('moon');
   void animatedBox.offsetWidth; 
   animatedBox.classList.add('earth');
-
- 
-}
+  }
 }
 
 
@@ -228,6 +224,7 @@ function inputClick() { // if input key is pressed, you can press enter and itll
         submit(); 
         flagGuess.removeEventListener("keyup", inputClick);
     }
+
     });
     flagGuess.addEventListener("keyup", inputClick);
   }
@@ -235,8 +232,8 @@ function inputClick() { // if input key is pressed, you can press enter and itll
   
   function normalMode() {
   
-      
-    let timer = "5";
+    startButton();
+    let timer = "60";
     
   
     const interval = setInterval(() => {
