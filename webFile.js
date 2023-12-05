@@ -27,12 +27,13 @@ const displayCountries = countries => {
 
 
 
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+// move the entire page when nav open
 function openNav() {
   var sidenav = document.getElementById("mySidenav");
   var mainContent = document.getElementById("main");
-  var flagPic = document.getElementById("flagPicture");
+
   var leaderboard = document.getElementById("leaderboard");
+
   var earth = document.getElementById("earth");
   var moon = document.getElementById("moon");
   
@@ -47,15 +48,18 @@ function openNav() {
   
 
   } else {
-      // If the navigation is closed, open it 
+      // If the navigation is close, open it 
       sidenav.style.width = "250px";
       mainContent.style.marginLeft = "250px";
       earth.style.marginLeft = "-150px";
       earth.style.transition = 'margin-left 0.5s';
       earth.style.padding = '20px';
   
-      leaderboard.style.marginLeft = "250px";
-      earth.style.transition = 'margin-left 0.5s';
+      leaderboard.style.right = "15%";
+     
+      
+     
+      leaderboard.style.transition = 'right 0.5s';
       earth.style.padding = '20px';
       
   }

@@ -68,8 +68,8 @@ body {
 
   height: 100%;
 
-  background-size: 50%; /* Adjust as needed */
-  z-index: -1; /* Place the background image above the gradient */
+  background-size: 50%; 
+  z-index: -1; 
 }
 
 #score {
@@ -78,7 +78,7 @@ body {
   font-size: 20px;
   position: absolute;
   width: 200px;
-  
+ 
   margin-top: 0px;
   padding: 10px;
   height: 305px;
@@ -99,12 +99,12 @@ body {
   padding: 10px;
   height: 305px;
   box-shadow: 0px 10px 20px #565656;
-  right: 20%; 
+  right: 21.5%; 
   display:flex;
   flex-direction: column;
   
   
-  overflow-y: hidden; /* Add a vertical scroll bar if needed */
+  overflow-y: hidden; 
   overflow-x: hidden;
 }
 
@@ -119,7 +119,13 @@ body {
 }
 .scoreChild2 { 
   text-align: right;
+
 }
+.scoreChild4 {
+  right: 20%;
+}
+
+
 
 .flag1 {/* container */
    
@@ -195,7 +201,7 @@ img {
 }
 
 #flag1 {
-  animation: changeZ 1s infinite; /* Adjust the duration as needed */
+  animation: changeZ 1s infinite; 
   border-style: none;
   border-color: black;
   
@@ -244,19 +250,19 @@ img {
   
 }
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0;
     left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
+    background-color: #111; 
+    overflow-x: hidden; 
     padding-top: 60px;
     transition: 0.3s; 
   }
  
-  /* The navigation menu links */
+
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -299,12 +305,12 @@ width: 50px;
 
        
   }
-  /* When you mouse over the navigation links, change their color */
+
   .sidenav a:hover {
     color: #f1f1f1;
   }
   
-  /* Position and style the close button (top right corner) */
+
   .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -313,13 +319,13 @@ width: 50px;
     margin-left: 50px;
   }
   
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+ 
   #main {
     transition: margin-left .5s;
     padding: 20px;
   }
   
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  /* smaller screen only for side nav */
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
@@ -328,7 +334,7 @@ width: 50px;
   .start {
     text-align: center;
   }
-  #starts { /* start button */
+  #starts { 
     font-family: 'Rubik Mono One', monospace;
     border-radius: 9px;
     font-size: 40px;
@@ -379,17 +385,17 @@ width: 50px;
 
   @keyframes changeZ {
     0% {
-      z-index: 1; /* Initial value */
+      z-index: 1; 
     }
     50% {
-      z-index: 100; /* Midway value */
+      z-index: 100; 
     }
     100% {
-      z-index: 1; /* Final value, same as initial for infinite loop */
+      z-index: 1;
     }
   }
   
-  /* Apply the animation to your element */
+
 
   h1 #gif{
     width: 50px;
@@ -690,7 +696,6 @@ input:invalid {
   background-color: 'rgba(19,19,19,255)';
 }
 
-/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -698,14 +703,14 @@ input:invalid {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -759,7 +764,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
+
 .slider.round {
   border-radius: 34px;
 }
