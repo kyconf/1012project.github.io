@@ -77,11 +77,12 @@ body {
   color: #f1f1f1;
   font-size: 20px;
   position: absolute;
-  width: 200px;
+  width: 13vw;
+  height: 20vw;
  
   margin-top: 0px;
   padding: 10px;
-  height: 305px;
+  
   box-shadow: 0px 10px 20px #565656;
   
  
@@ -94,10 +95,11 @@ body {
   color: #f1f1f1;
   font-size: 20px;
   position: absolute;
-  width: 200px;
+  width: 13vw;
+  height: 20vw;
   margin-top: 0px;
   padding: 10px;
-  height: 305px;
+ 
   box-shadow: 0px 10px 20px #565656;
   right: 21.5%; 
   display:flex;
@@ -270,6 +272,7 @@ img {
     color: #818181;
     display: block;
     transition: 0.3s;
+     font-family: 'Patrick Hand', cursive;
   }
   #slider { 
     float: left;
@@ -777,3 +780,52 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.hintBox {
+
+  width: 50px;
+  height: 20px;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  border-style: solid;
+  opacity: 0;
+
+}
+
+@keyframes opacityChange {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+
+}
+
+
+.blackbox {
+  text-align: center;
+  color: white;
+  left: 1.5vw;
+  font-family: 'Rubik Mono One', monospace;
+  background-color: black;
+  position: absolute;
+  top: 7vw;
+  width: 54.4vw;
+  padding: 20px;
+  margin-right: 20vw;
+  margin-left: 20vw;
+  animation: opacityChange 3s ease-in-out forwards ;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0px 10px 20px #565656;
+}
+
+#aboutText {
+  text-align: center;
+  justify-content: center;;
+  font-size: 22px;
+  margin: 50px;
+  margin-top: 20px;
+  font-family: 'Patrick Hand', cursive;
+}

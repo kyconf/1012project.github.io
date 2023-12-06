@@ -44,20 +44,23 @@ function everything() {
 
 function startButton() {
 
+
+  document.getElementById("score").style.backgroundColor = 'rgba(19,19,19,255)';
+  document.getElementById("leaderboard").style.backgroundColor = 'rgba(19,19,19,255)';
+
   everything();
 
   var hideInput = document.getElementById("inputSubmit");
     var startButt = document.getElementById("start");
 
-    document.getElementById("score").style.backgroundColor = 'rgba(128, 128, 128, 0.135)';
-    document.getElementById("leaderboard").style.backgroundColor = 'rgba(128, 128, 128, 0.135)';
+
     hideInput.style.display = "block";
     document.getElementById("hintButt").style.display = "flex";
     
 
    
     document.getElementById("score").innerHTML = "Score: 0" + "<br><br>Previous Highscore: ";
-    document.getElementById("leaderboard").innerHTML = "Leaderboard:"
+    document.getElementById("leaderboard").innerHTML = "<p> Leaderboard not available in practice mode."
 
   if (startButt.style.display === "none") {
     startButt.style.display = "flex";

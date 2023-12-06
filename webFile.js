@@ -102,6 +102,7 @@ function everything() {
   capital = flagImage[randomIndex].capital;
   subregion = flagImage[randomIndex].subregion;
   timezone = flagImage[randomIndex].timezones;
+  
     console.log(randomImageURL);
     console.log(randomName);
 }
@@ -279,6 +280,36 @@ function normalMode() {
 
 
 loadCountryAPI();
+
+let blackbox = document.getElementById("blackbox");
+
+blackbox.style.display = 'none';
+function hint() {
+
+let sr = "This country is located in " + subregion;
+let tz = "Timezone: " + timezone;
+let cp =  "The capital of this country is " + capital;
+let lg = "The official language spoken here is " + flagImage[randomIndex].languages[Object.keys(flagImage[randomIndex].languages)[0]];
+
+
+randomFact = [sr, tz, cp, lg];
+randomFactNum = Math.floor(Math.random() * randomFact.length);
+
+
+
+  blackbox.innerHTML =  randomFact[randomFactNum];
+  
+
+  blackbox.style.display = 'block';
+
+
+blackbox.classList.remove("blackbox");
+void blackbox.offsetWidth;
+blackbox.classList.add("blackbox");
+
+  console.log(randomFactNum);
+
+}
 
 
 
